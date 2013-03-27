@@ -60,22 +60,22 @@ public class Lotto609 {
         System.out.printf("Input your number of choices.");
         for (int index=0; index < userNum.length; index++)  // array of the variable element 
         {
-            System.out.printf("\n\nUser Input #%d: ", index+1); 
-            userNum[index] = keyboard.nextInt();    
+            System.out.printf("\n\nUser Input #%d: ", index+1); //when the input is valid then move on to the next array element 
+            userNum[index] = keyboard.nextInt();            // for the next input 
             
                 if (userNum[index] < 0 || userNum[index] >= 10)     // validating the user's inputs then retyping it when its invalid 
                 {
                     System.out.printf("\nUser's input is invalid, try again.");
-                     System.out.printf("\n\nUser Input #%d: ", index+1);
-                         userNum[index] = keyboard.nextInt();    
-                }
+                     System.out.printf("\n\nUser Input #%d: ", index+1);   
+                         userNum[index] = keyboard.nextInt();    // keyboard input scanner for the user if its not validated 
+                }                                                   // retype your choice of number
                 
-         }
+         }  // end of for loop for userNum input 
              System.out.println();
               System.out.printf("User's Numbers:\t\t");
-                for (int index = 0; index < userNum.length; index++)
-               {
-                 System.out.printf("%d\t", userNum[index]);
+                for (int index = 0; index < userNum.length; index++)    // int index is doing a for loop to display the output of 
+               {                                                        // userNum
+                 System.out.printf("%d\t", userNum[index]);           // display the user numbers as a table 
                }
            return userNum;  // returns the value 
     }   // end of getUser method 
@@ -83,38 +83,37 @@ public class Lotto609 {
     // this method generates random numbers into an array 
     // then returns the value of the random number
     public static int[] ranNumbers(){
-        Random ranGen = new Random();  
-        int [] ranNum = new int [6];
-        for (int random = 0; random < ranNum.length; random ++)
+        Random ranGen = new Random();  // Random generator class being set
+        int [] ranNum = new int [6];    // int ranNum is being set as an array with, 6 elements within the array
+        for (int random = 0; random < ranNum.length; random ++) //ranNum is set as a for loop 
         {
-            ranNum[random] = ranGen.nextInt(9); 
+            ranNum[random] = ranGen.nextInt(9);     //  the generator sets the random numbers as a variable within 0-9 numbers
         }    
         
             System.out.println(); 
-                    System.out.printf("Lotto Numbers: \t\t");
-                for (int random = 0; random < ranNum.length; random ++)
-                {
-                    System.out.printf("%d\t", ranNum[random]);
+                    System.out.printf("Lotto Numbers: \t\t");   
+                for (int random = 0; random < ranNum.length; random ++) // int random is doing a for loop to display the output of 
+                {                                                       // ranNum 
+                    System.out.printf("%d\t", ranNum[random]);  //displays the random numbers as a table 
                 }
-        return ranNum;  
-        }
+        return ranNum;  // the value of the ranNum is then returned
+        }   // end of ranNumbers method 
     
     //this method takes both arrays from a random generating number and the user's input numbers
     // and matches them into an array 
     public static int arrayMatch(int[] array_user, int[] array_comp){
-        int array_match = 0;
+        int array_match = 0;    // the variable array_match combines both arrays 
         
-        if (array_user.length != array_comp.length){
-            return array_user.length+1;
+        if (array_user.length != array_comp.length){    // if array_user length is either equals or not equals array_comp length then
+            return array_user.length+1;                 // array_user length then value is returned then adds to 1 
         }
-             for (int index= 0 ; index < array_user.length; index++)
-             {
-                 if (array_user[index] == array_comp[index])
-                     array_match++; 
+             for (int index= 0 ; index < array_user.length; index++)    // loops as much as how manny elements is being set 
+             {                                                           // in the array 
+                 if (array_user[index] == array_comp[index])      // if array_user and array_comp matches 
+                     array_match++;                                 // then adds the a value to 1 
              }
              
-         return array_match; 
-        
-    }
+         return array_match;    // the array_match variable is then returned 
+    }   // arrayMatch method ends
        
-}
+}   // Lotto 6-09 class ends 
